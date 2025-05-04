@@ -3,34 +3,55 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-  }
-  
-  body {
+}
+
+body {
     font-family: 'Arial', sans-serif;
     background-color: #121212;
     color: #e0e0e0;
     line-height: 1.6;
-  }
-  
-  /* ========== Контейнер застосунку ========== */
-  .app {
+}
+
+/* ========== Контейнер застосунку ========== */
+.app {
     display: flex;
     flex-direction: column;
     align-items: center;
     padding: 20px;
     min-height: 100vh;
     background-color: #1e1e1e;
-  }
-  
-  /* ========== Пошук ========== */
-  .app-header {
+}
+
+/* ========== Заголовок додатку (Кінотеатр) ========== */
+.app-header {
     width: 100%;
     display: flex;
     justify-content: center;
-    margin-bottom: 20px;
-  }
-  
-  .search-input {
+    margin-bottom: 40px;
+}
+
+.app-header h1 {
+    font-size: 36px;
+    font-weight: 600;
+    color: #ff7f00;
+    letter-spacing: 2px;
+    transition: color 0.3s ease;
+}
+
+.app-header h1:hover {
+    color: #e76800;
+}
+
+/* ========== Пошук ========== */
+.search-bar {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    width: 100%;
+    margin-bottom: 30px;
+}
+
+.search-input {
     width: 100%;
     max-width: 500px;
     padding: 12px;
@@ -40,58 +61,117 @@
     background-color: #2b2b2b;
     color: #e0e0e0;
     transition: all 0.3s ease;
-  }
-  
-  .search-input:focus {
-    border-color: #888;
+}
+
+.search-input:focus {
+    border-color: #ff7f00;
     outline: none;
+    background-color: #333;
+}
+
+/* Основний стиль для select */
+.genre-select {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    padding: 12px;
+    font-size: 16px;
+    border-radius: 8px;
+    border: 1px solid #ff7f00;
+    background-color: #2b2b2b;
+    color: #ff7f00;
+    background-image: url("data:image/svg+xml;utf8,<svg fill='%23ff7f00' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/></svg>");
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+    background-size: 16px;
+    padding-right: 36px;
+    cursor: pointer;
+    outline: none; /* Забираємо контур */
+    -webkit-tap-highlight-color: transparent; /* Вимикаємо виділення на мобільних */
   }
   
-  /* ========== Список карток фільмів ========== */
-  .movie-list {
+  /* Стилі для опцій (option) */
+  .genre-select option {
+    background-color: #1e1e1e !important;
+    color: #ff7f00 !important;
+    padding: 10px !important;
+    border: none !important; /* Прибираємо будь-який контур для опцій */
+  }
+  
+  /* Стиль при виборі опції */
+  .genre-select option:checked {
+    background-color: #1e1e1e !important;
+    color: #ff7f00 !important;
+  }
+  
+  /* Забираємо будь-яку анімацію при відкритті списку */
+  .genre-select:focus-visible {
+    outline: none !important;
+    box-shadow: none !important;
+  }
+  
+  /* Стилі для браузерів, які не підтримують деякі зміни */
+  @-moz-document url-prefix() {
+    .genre-select option {
+      background-color: #1e1e1e !important;
+      color: #ff7f00 !important;
+    }
+  }
+  
+  @media screen and (-webkit-min-device-pixel-ratio: 0) {
+    .genre-select option {
+      background-color: #1e1e1e !important;
+      color: #ff7f00 !important;
+    }
+  }
+  
+  
+/* ========== Список карток фільмів ========== */
+.movie-list {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
     gap: 20px;
     width: 100%;
     max-width: 1200px;
     margin-top: 20px;
-  }
-  
-  /* ========== Картка фільму ========== */
-  .movie-card {
+}
+
+/* ========== Картка фільму ========== */
+.movie-card {
     background-color: #2a2a2a;
     border-radius: 10px;
     overflow: hidden;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
-    transition: box-shadow 0.3s ease-in-out;
+    transition: box-shadow 0.3s ease-in-out, transform 0.3s ease;
     cursor: pointer;
     display: flex;
     flex-direction: column;
-  }
-  
-  .movie-card:hover {
-    box-shadow: 0 6px 20px rgba(255, 255, 255, 0.1);
-  }
-  
-  .movie-card img {
+}
+
+.movie-card:hover {
+    box-shadow: 0 6px 20px rgba(247, 82, 17, 0.1);
+    transform: scale(1.05);
+}
+
+.movie-card img {
     width: 100%;
     height: auto;
     object-fit: contain;
     border-bottom: 1px solid #444;
     display: block;
     background-color: #000;
-  }
-  
-  /* Заголовок */
-  .movie-card h3 {
+}
+
+/* Заголовок */
+.movie-card h3 {
     font-size: 18px;
     font-weight: bold;
     margin: 10px 15px 5px;
     color: #fff;
-  }
-  
-  /* ========== Опис фільму ========== */
-  .movie-card .description {
+}
+
+/* ========== Опис фільму ========== */
+.movie-card .description {
     font-size: 13px;
     color: #ccc;
     margin: 0 15px 10px;
@@ -102,66 +182,77 @@
     -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
     transition: all 0.3s ease;
-  }
-  
-  .movie-card .description.expanded {
+}
+
+.movie-card .description.expanded {
     -webkit-line-clamp: unset;
     overflow: visible;
     display: block;
-  }
-  
-  /* ========== Кнопка “Більше / Менше” (оранжева) ========== */
-  .toggle-btn {
+}
+
+/* ========== Кнопка “Більше / Менше” ========== */
+.toggle-btn {
     margin: 0 15px 10px;
     padding: 6px 12px;
     background-color: #ff7f00;
-    color: white;
+    color: rgb(240, 232, 232);
     border: none;
     border-radius: 6px;
     font-size: 13px;
     cursor: pointer;
     align-self: flex-start;
     transition: background-color 0.3s ease, transform 0.2s ease;
-  }
-  
-  .toggle-btn:hover {
+}
+
+.toggle-btn:hover {
     background-color: #e76800;
     transform: scale(1.05);
-  }
-  
-  /* Додаткова інформація */
-  .movie-card .info {
+}
+
+/* Додаткова інформація */
+.movie-card .info {
     font-size: 14px;
     margin: 0 15px 10px;
     color: #bbb;
-  }
-  
-  .movie-card .info strong {
-    color: #ddd;
-  }
-  
-  /* ========== Адаптивність ========== */
-  @media (max-width: 768px) {
+}
+
+.movie-card .info strong {
+    color: #cfc2c2;
+}
+
+/* ========== Інформація про сеанс ========== */
+.movie-card .session-info {
+    font-size: 14px;
+    color: #ff7f00;
+    margin: 0 15px 10px;
+    font-weight: bold;
+}
+
+.movie-card .session-info strong {
+    color: #fff;
+}
+
+/* ========== Адаптивність ========== */
+@media (max-width: 768px) {
     .movie-list {
-      grid-template-columns: 1fr 1fr;
+        grid-template-columns: 1fr 1fr;
     }
-  
+
     .movie-card img {
-      height: 250px;
+        height: 250px;
     }
-  }
-  
-  @media (max-width: 480px) {
+}
+
+@media (max-width: 480px) {
     .movie-list {
-      grid-template-columns: 1fr;
+        grid-template-columns: 1fr;
     }
-  
+
     .search-input {
-      max-width: 100%;
+        max-width: 100%;
     }
-  
+
     .movie-card img {
-      height: 200px;
+        height: 200px;
     }
-  }
-  
+}

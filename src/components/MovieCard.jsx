@@ -1,28 +1,29 @@
 import React, { useState } from 'react';
 
 const MovieCard = ({ movie }) => {
-  const [showFullDescription, setShowFullDescription] = useState(false);
+  const [isExpanded, setIsExpanded] = useState(false);
 
   const toggleDescription = () => {
-    setShowFullDescription(!showFullDescription);
+    setIsExpanded(!isExpanded);
   };
 
   return (
     <div className="movie-card">
       <img src={`/images/${movie.poster}`} alt={movie.title} />
       <h3>{movie.title}</h3>
-
-      <p className={`description ${showFullDescription ? 'expanded' : ''}`}>
+      <div className={`description ${isExpanded ? 'expanded' : ''}`}>
         {movie.description}
-      </p>
-
+      </div>
       <button className="toggle-btn" onClick={toggleDescription}>
-        {showFullDescription ? 'Менше' : 'Більше'}
+        {isExpanded ? 'Менше' : 'Більше'}
       </button>
-
       <div className="info">
-        <p><strong>Жанр:</strong> {movie.genre}</p>
-        <p><strong>Дата та час:</strong> {movie.dateTime}</p>
+        <strong>Жанр: </strong>{movie.genre}
+      </div>
+      
+      {/* Додаємо відображення дати та часу сеансу */}
+      <div className="session-info">
+        <strong>Сеанс: </strong>{movie.dateTime}
       </div>
     </div>
   );
