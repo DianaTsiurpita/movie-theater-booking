@@ -1,15 +1,18 @@
 import React from 'react';
-import MovieList from './components/MovieList';
-import movies from './data/movies';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Home from './pages/Home';
+import Booking from './pages/Booking';
 import './index.css';
 
 const App = () => {
-    return (
-      <div>
-        {/* Основний контент (список фільмів) */}
-        <MovieList movies={movies} />
-
-        {/* Контактна інформація та місце знаходження */}
+  return (
+    <Router>
+      <div className="app">
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/booking/:id" element={<Booking />} />
+        </Routes>
+        {/* Footer завжди внизу */}
         <footer className="footer">
           <div className="footer-content">
             <p>Контакти:</p>
@@ -19,7 +22,8 @@ const App = () => {
           </div>
         </footer>
       </div>
-    );
+    </Router>
+  );
 };
 
 export default App;

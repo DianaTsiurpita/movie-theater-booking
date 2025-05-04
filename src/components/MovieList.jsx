@@ -17,7 +17,7 @@ const MovieList = ({ movies }) => {
   return (
     <div className="app">
       <div className="app-header">
-        <h1>Кінотеатр</h1>
+        <h1>Кіно</h1>
       </div>
 
       {/* Пошукове поле для фільтрації за назвою */}
