@@ -1,12 +1,21 @@
-# React + Vite
+У рамках цього етапу проєкту було успішно реалізовано функціонал бронювання місць у кінозалі з використанням LocalStorage для збереження даних. Основні досягнення:
+Реалізовано сервіс BookingService, який дозволяє:
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+зберігати інформацію про бронювання;
+отримувати список уже заброньованих місць для конкретного фільму.
 
-Currently, two official plugins are available:
+Забезпечено інтерактивний вибір місць у залі з візуальним відображенням:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+вільні місця (сірі),
+обрані користувачем (зелені),
+заброньовані (червоні, заблоковані для натискання).
 
-## Expanding the ESLint configuration
+Додано форму для введення даних користувача (ім’я, телефон, email) з валідацією:
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+всі поля обов’язкові;
+перевірка правильного формату email.
+
+Після успішного бронювання:
+
+місця зберігаються в LocalStorage;
+користувач отримує сповіщення через react-toastify.
