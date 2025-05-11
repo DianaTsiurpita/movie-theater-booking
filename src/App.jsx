@@ -3,6 +3,8 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Home from './pages/Home';
 import Booking from './pages/Booking';
 import './index.css';
+import { toast, ToastContainer } from 'react-toastify'; // Імпортуйте ToastContainer
+import 'react-toastify/dist/ReactToastify.css';
 
 const App = () => {
   return (
@@ -12,6 +14,10 @@ const App = () => {
           <Route path="/" element={<Home />} />
           <Route path="/booking/:id" element={<Booking />} />
         </Routes>
+
+        {/* ToastContainer для відображення сповіщень */}
+        <ToastContainer />
+
         {/* Footer завжди внизу */}
         <footer className="footer">
           <div className="footer-content">

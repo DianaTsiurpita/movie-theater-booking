@@ -456,3 +456,176 @@ body {
     color: #ff7f00;
     margin-bottom: 30px;
 }
+.movie-icon {
+    width: 65px;
+    height: 65px;
+    margin-right: 10px; /* Відстань між іконкою та текстом */
+  }
+  /* Загальні стилі для кінозалу */
+.cinema-grid {
+    display: grid;
+    grid-template-rows: repeat(5, 1fr);
+    grid-template-columns: repeat(8, 1fr);
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+  
+  /* Стиль для кожного місця */
+  .seat {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: green; /* Доступне місце */
+    color: rgb(99, 39, 39);
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 4px;
+    text-align: center;
+  }
+  
+  .seat.booked {
+    background-color: red; /* Заброньоване місце */
+    cursor: not-allowed;
+  }
+  
+  .seat.selected {
+    background-color: blue; /* Вибране місце */
+  }
+  
+  /* Стиль для вибраних місць */
+  .seat.selected:hover {
+    background-color: darkblue;
+  }
+  
+  /* Для інформації про вибрані місця */
+  strong {
+    font-size: 1.2rem;
+    display: block;
+    margin-bottom: 10px;
+  }
+/* Наприклад, стилі для місць */
+.seat {
+  width: 50px;
+  height: 50px;
+  margin: 5px;
+  border-radius: 5px;
+  background-color: rgb(218, 210, 210);
+  cursor: pointer;
+}
+
+.available {
+  background-color: lightgreen;
+}
+
+.selected {
+  background-color: yellow;
+}
+
+.booked {
+  background-color: red;
+  cursor: not-allowed;
+}
+
+input, button {
+  margin: 10px 0;
+  padding: 8px;
+}
+@media (max-width: 768px) {
+  .cinema-hall {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .seat {
+    width: 40px;
+    height: 40px;
+  }
+}
+/* src/index.css */
+
+.cinema-hall {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 10px;
+  margin: 20px 0;
+}
+
+.seat {
+  padding: 10px;
+  background-color: #dcdcdc;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.seat:hover {
+  background-color: #a9a9a9;
+}
+
+.selected {
+  background-color: #4caf50;
+  color: white;
+}
+
+.booked {
+  background-color: red;
+  color: white;
+}
+
+.available {
+  background-color: #dcdcdc;
+}
+
+.booked-seat {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+@media (max-width: 768px) {
+  .cinema-hall {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .cinema-hall {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+/* Стилі для кінозалу */
+.cinema-grid {
+  display: grid;
+  grid-template-columns: repeat(8, 1fr); /* 8 місць в кожному ряду */
+  grid-gap: 10px;
+  margin: 20px 0;
+}
+
+.seat {
+  width: 40px;
+  height: 40px;
+  background-color: #ccc;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.seat.booked {
+  background-color: red;
+  cursor: not-allowed; /* Деактивувати кліки на заброньованих місцях */
+}
+
+.seat.selected {
+  background-color: blue;
+}
+
+.seat:hover {
+  background-color: #aaa;
+}
