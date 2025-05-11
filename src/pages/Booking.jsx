@@ -37,7 +37,7 @@ const CinemaHall = () => {
 
     saveBooking(id, userDetails, selectedSeats);
     setBookedSeats(prev => [...prev, ...selectedSeats]);
-    toast.success("Бронювання успішне!");
+    toast.success("Успішне бронювання!");
 
     setSelectedSeats([]);
     setUserDetails({ name: "", phone: "", email: "" });
