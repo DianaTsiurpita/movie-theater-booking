@@ -1,5 +1,4 @@
 // src/pages/services/BookingService.js
-
 const BOOKED_SEATS_KEY = "booked_seats";
 
 // Отримання заброньованих місць для певного фільму
